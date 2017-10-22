@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8"> 
+<script src=".\js\jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>My First Web Service</title>
+</head>
+
+<body>
+    
+<script>
+    $(function(){
+        let name = "junyoung";
+        let age = 34; 
+
+        let betterUser = {
+            name = "junyoung",
+            age = 34
+        }
+
+        function greet(){
+            console.log(`Hello, ${betterUser.name}`);
+        }
+
+        function betterGreet(user){
+            console.log(`Hello. ${user.name}`);
+        }
+        
+    });
+
+
+
+</script>
+</body>
+</html>

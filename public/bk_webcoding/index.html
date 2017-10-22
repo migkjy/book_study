@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title>My First Web Service</title>
+<link rel="stylesheet" href="./css/cssReset.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="./css/footer.css">
+<script src="./js/jquery-3.1.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/valueCheck.js"></script>
+</head>
+
+<body>
+    <div id="viewType">
+        <a href="/myservice/me.html" id="meLink">me</a>
+        <a href="/myservice/all.html" id="allLink">all</a>
+    </div>    
+    <header>
+        <div id="myService">My First Web Service</div>
+        <!-- after Login -->
+        <div id="myName">
+            <p>hi mr.june</p>
+            <div id="logoutBox">
+                <input type="button" id="logoutBtn" value="logout">
+            </div>
+        </div>
+        <!-- befort Login -->
+        <div id="loginForm">
+            <form action="./login.php" name="loginForm" method="POST">
+                <div id="loginEmailArea">
+                    <label for="loginEmail">E-mail</label>
+                    <div class="loginInputBox">
+                        <input type="email" id="loginEmail" placeholder="E-mail">
+                    </div>
+                    <div id="loginPwArea">
+                        <label for="loginPw">Password</label>
+                        <div class="loginInputBox">
+                            <input type="password" name="userPw" id="loginPw" placeholder="more than 8 letters">
+                        </div>
+                    </div>
+                    <div class="loginSubmitBox">
+                        <input type="submit" id="loginSubmit" value="login">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+    <!-- container -->
+    <div id="container">
+        <section id="introSite">
+            <div id="siteComment">
+                내가 만드는<br>
+                첫 웹서비스에<br>
+                어서 오세요.
+            </div>
+            <div id="signUpBtn">
+                <p>sign-up</p>
+            </div>
+        </section>
+        <section id="signUp">
+            <div id="signUpCenter">
+                <form action="./database/myMember.php" id="signUpForm" method="post">
+                    <div class="row">
+                        <div class="inputBox">
+                            <input type="text" name="userName" id="userName" placeholder="User Name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="inputBox">
+                            <input type="email" name="userEmail" id="userEmail" placeholder="E-Mail">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="inputBox">
+                            <input type="password" name="userPw" id="userPw" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="">Birthday</label>
+                        <div class="selectBox">
+                            <select name="birthYear" id="birthYear">
+                                <!-- generate by js -->
+                            </select>
+                        </div>
+                        <div class="selectBox selectBoxMargin">
+                            <select name="birthMonth" id="birthMonth">
+                                <option>Month</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="selectBox">
+                            <select name="birthDay" id="birthDay">
+                                <!-- generate by js -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row genderRow">
+                        <div id="genderLabel">
+                            <label for="gM" id="gMM">Male</label>
+                            <label for="gW" id="gMW">Woman</label>
+                        </div>
+                        <input type="radio" name="gender" class="gender" id="gM" value="m">
+                        <input type="radio" name="gender" class="gender" id="gW" value="w">
+                    </div>
+                    <div class="row">
+                        <p id="valueError"></p>
+                    </div>
+                    <div class="row">
+                        <div class="submitBox">
+                            <input type="submit" id="signUpSubmit" value="Sign-Up">
+                        </div>
+                    </div>
+                    <input type="hidden" name="mode" value="save">
+                </form>
+                <div id="goToLoginBtn">
+                    <p>Login</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>My First Web Service</p>
+    </footer>
+<script>
+    $(function(){
+        // generating year numbers
+        dtYear = new Date().getFullYear();
+        optYears = "";
+        for(var i=dtYear; i>=1940; i--){
+            optYears += "<option>"+i+"</option>"
+        }
+        $(".selectBox #birthYear").html("<option>Year</option>"+optYears);
+
+        // generating day numbers
+        optDays = "";
+        for(var i=1; i<=31; i++){
+            optDays += "<option>"+i+"</option>"
+        }
+        $(".selectBox #birthDay").html("<option>Day</option>"+optDays);
+    });
+</script>
+</body>
+</html>
