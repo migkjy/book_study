@@ -16,20 +16,27 @@
         let age = 34; 
 
         let betterUser = {
-            name = "junyoung",
-            age = 34
+            name : "junyoung",
+            age : 34
         }
 
         function greet(){
-            console.log(`Hello, ${betterUser.name}`);
             console.log(`Hello, ${betterUser.name}`);
         }
 
         function betterGreet(user){
             console.log(`Hello. ${user.name}`);
         }
-        
-    });
+
+        let globalFunc;
+        {
+            let blockVar = 'a';
+            globalFunc = function(){
+                console.log(blockVar);
+            }
+        }
+        globalFunc();
+    })
 
 
 
