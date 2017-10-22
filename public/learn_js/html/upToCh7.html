@@ -3,8 +3,9 @@
 <head>
 <meta name="viewport" content="width=device-width">
 <meta charset="utf-8"> 
-<script src=".\js\jquery.min.js"></script>
+<script src="..\js\jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/ch8.js"></script>
 <title>My First Web Service</title>
 </head>
 
@@ -36,6 +37,34 @@
             }
         }
         globalFunc();
+
+        let f;
+        {
+            let o = {note: 'Safe'};
+            f = function(){
+                return o;
+            }
+        }
+        let oRef = f();
+        oRef.note = "Not so safe after all!";
+        console.log(oRef.note);
+
+        const message = (function(){
+            const secret = "I'm a secret!";
+            return `The secret is ${secret.length} characters long`;
+        })();
+        console.log(message);
+
+        const f2 = (function(){
+            let count = 0;
+            return function(){
+                return `I have been called ${++count} time(s)`
+            }
+        })()
+
+        console.log(f2());
+        console.log(f2());
+        
     })
 
 
