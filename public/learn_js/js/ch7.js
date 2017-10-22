@@ -41,3 +41,12 @@ if (typeof x3 === 'undefined') {
   // x3 is ok to use
 }
 // let x3 = 5; // x3 정의시 위 if문 사용 불가
+
+(function () {
+  // 'use strict';  // no-need라고 하네
+  console.log('strict이고 동작함');
+  // 코드를 이곳에 작성
+  // 이 코드는 strict 모드로 동작
+  // 이 단락 외에서는 상관이 없음
+}());
+
