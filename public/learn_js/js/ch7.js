@@ -49,4 +49,3 @@ if (typeof x3 === 'undefined') {
   // 이 코드는 strict 모드로 동작
   // 이 단락 외에서는 상관이 없음
 }());
-

@@ -36,13 +36,9 @@ console.log(arr2.length);
 
 let arr = ['b', 'c', 'd'];
 arr.push('e');
-console.log(arr);
 console.log(arr.pop()); // e
-console.log(arr); // b, c, d
 arr.unshift('a');
-console.log(arr);
 console.log(arr.shift());
-console.log(arr);
 
 let arr6 = [1, 2, 3];
 console.log(arr6.concat([4, 5, 6])); // arr6는 바뀌지 않음
@@ -143,3 +139,46 @@ function cardToString(c) {
 }
 
 console.log(cards.filter(c => c.value === 2).map(cardToString));
+
+arr = [5, 7, 2, 4];
+const sum = arr.reduce((a, x) => a + x, 2);
+const sum2 = arr.reduce((a, x) => a + x);
+console.log(sum, '/', sum2);
+
+const words = ['Beachball', 'Rodeo', 'Angel', 'Aardvark', 'Xylophone', 'November', 'Chocolate',
+  'Papaya', 'Uniform', 'Joker', 'Clover', 'Bali'];
+const alphabetical = words.reduce((a, x) => {
+  if (!a[x[0]]) a[x[0]] = [];
+  a[x[0]].push(x);
+  return a;
+}, {}); // 여기서 {}는 a의 시작값인듯. a의 형태가 객체가 되어야 위의 식이 형성이 되는걸까, {} 안넣으면 에러나더라
+console.log(alphabetical);
+
+const longWords = words.reduce((a, w) => (w.length > 6 ? `${a} ${w}` : a), '').trim();
+console.log(longWords);
+
+const data = [3.3, 5, 7.2, 12, 4, 6, 10.3];
+const stats = data.reduce((a, x) => {
+  a.N += 1;
+  const delta = x - a.mean;
+  a.mean += delta / a.N;
+  a.M2 += delta * (x - a.mean);
+  return a;
+}, { N: 0, mean: 0, M2: 0 });
+console.log(stats);
+if (stats.N > 2) {
+  stats.variance = stats.M2 / (stats.N - 1);
+  stats.stdev = Math.sqrt(stats.variance);
+}
+console.log(stats);
+
+arr = [1, null, 'hello', 'world', true, undefined];
+delete arr[3];
+console.log(arr.join());
+console.log(arr.join(''));
+console.log(arr.join(' -- '));
+console.log(arr);
+
+const html = `<ul><li> ${arr.join('</li><li>')} </li></ul>`;
+document.write(html);
+console.log(html);
