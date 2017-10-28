@@ -57,3 +57,5 @@ const msDiff = d2 - d1;
 const daysDiff = msDiff / 1000 / 60 / 60 / 24;
 console.log(msDiff);
 console.log(daysDiff);
+
+// rest... look for moment.js
