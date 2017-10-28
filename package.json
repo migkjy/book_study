@@ -8,7 +8,8 @@
     "babel-runtime": "^6.26.0",
     "core-js": "^2.5.1",
     "eslint-config-airbnb": "^16.1.0",
-    "meteor-node-stubs": "~0.2.4"
+    "meteor-node-stubs": "~0.2.4",
+    "moment-timezone": "^0.5.13"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
